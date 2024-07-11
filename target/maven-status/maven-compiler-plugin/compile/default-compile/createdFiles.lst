@@ -1,1 +1,4 @@
+Main.class
+org\luispichiya\webapp\model\Producto.class
+org\luispichiya\webapp\util\JPAUtil.class
 org\luispichiya\webapp\servlet\ProductoServlet.class
