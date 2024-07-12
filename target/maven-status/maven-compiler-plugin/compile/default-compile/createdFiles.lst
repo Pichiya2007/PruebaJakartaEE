@@ -1,4 +1,6 @@
 Main.class
-org\luispichiya\webapp\model\Producto.class
 org\luispichiya\webapp\util\JPAUtil.class
 org\luispichiya\webapp\servlet\ProductoServlet.class
+org\luispichiya\webapp\model\Producto.class
+org\luispichiya\webapp\service\ProductoService.class
+org\luispichiya\webapp\service\IProductoService.class
