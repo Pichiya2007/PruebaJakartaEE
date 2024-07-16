@@ -1,6 +1,7 @@
 package org.luispichiya.webapp.service;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
 import java.util.List;
 import org.luispichiya.webapp.model.Producto;
 import org.luispichiya.webapp.util.JPAUtil;
@@ -20,7 +21,17 @@ public class ProductoService implements IProductoService {
 
     @Override
     public void agregarProducto(Producto producto) {
-        em.persist(producto);
+        EntityTransaction transaction = em.getTransaction();
+        try{
+            transaction.begin();
+            em.persist(producto);  //ES LO QUE AGREGA
+            transaction.commit();
+        }catch(Exception e){
+            if(transaction.isActive()){
+                transaction.rollback();
+            }            
+            e.printStackTrace();
+        }
     }
 
     @Override
